@@ -22,5 +22,6 @@ import leaf1 from "./leaf1.svg"
 import leaf2 from "./leaf2.svg"
 import leaf3 from "./leaf3.svg"
 import leaf4 from "./leaf4.svg"
+import close from "./x.svg"
 
-export { github, github2, javascript, html, css, typescript, csharp, sql, react, tailwind, sass, node, express, mongo, git, play, pause, menu, linkedin, email ,leaf1, leaf2, leaf3, leaf4 }
+export { github, github2, javascript, html, css, typescript, csharp, sql, react, tailwind, sass, node, express, mongo, git, play, pause, menu, linkedin, email ,leaf1, leaf2, leaf3, leaf4, close }

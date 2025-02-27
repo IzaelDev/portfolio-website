@@ -1,13 +1,10 @@
-import { useThree } from '@react-three/fiber';
-import { OrbitControls, PerspectiveCamera, Plane } from '@react-three/drei';
+import { useFrame } from '@react-three/fiber';
+import { OrbitControls, PerspectiveCamera } from '@react-three/drei';
 import { Island, Makar } from './index';
+import { useRef } from 'react';
 
 function Scene({ modelRef }) {
-  const { viewport } = useThree();
-  const isMobile = window.innerWidth < 768;
-  const responsiveRatio = viewport.width /12;
-  const planeAspectRatio = 15.5 / 17;
-  const scaleRatio = 0.9;
+  const islandRef = useRef();
 
   return (
     <>
@@ -15,7 +12,7 @@ function Scene({ modelRef }) {
       <PerspectiveCamera makeDefault position={[0, 0.35, 1]} />
       <ambientLight intensity={0.8} castShadow={false} />
       <Makar ref={modelRef} />
-      <Island />
+      <Island/>
       <directionalLight
         className="bg-[#ffebc4]"
         castShadow

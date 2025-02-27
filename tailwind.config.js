@@ -16,8 +16,11 @@ export default {
         'fotrodin': ['FotRodin'],
       },
       backgroundImage: {
-        'island': "url('/src/assets/images/toon_island.jpg')",
-      } 
+        'island': "url('/src/assets/images/toon_island.webp')",
+      },
+      screens: {
+        'xs': '374px'
+      }
     },
   },
   plugins: [],

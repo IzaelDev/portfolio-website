@@ -4,23 +4,22 @@ import { Wind } from "../components"
 
 const Hero = () => {
   return (
-    <section className="flex h-[99svh] w-[100svw] justify-center bg-island bg-[position:33%_50%] md:bg-top md:bg-[length:100%_100%] overflow-visible">
+    <section id=" " className="flex h-[99svh] w-full justify-center items-center bg-island bg-[position:55%_40%] md:bg-top md:bg-[length:100%_100%] mb-[10svh] overflow-x-hidden">
       <Wind />
-      <div className="absolute h-[100%] w-[100svw] bg-gradient-to-b from-transparent via-to-slate-900 to-slate-900"/>
-      <motion.div className="absolute inset-y-1/3 lg:inset-y-[30%]"
+      <div className="absolute h-full w-full bg-gradient-to-b from-transparent via-to-slate-900 to-slate-900"/>
+      <motion.div className="relative flex flex-col items-center justify-center bg-[#1e293b] p-4 md:p-6 lg:p-8 rounded-lg xl:rounded-xl bg-opacity-80 [box-shadow:0px_0px_10px_5px_#1e293b] z-10"
       initial={{ opacity: 0, scale: 0.5 }}
       animate={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.81, delay: 1, ease: [0, 0.71, 0.2, 1.01] }}> 
-        <h2 className="relative top-5 right-4 text-blue-100 bg-gradient-to-t from-[#347bb2] to-[#1E5183] rounded-lg py-1 px-3 mb-1 max-sm:text-lg inline-block text-[1em] z-20">
-          Hello! I&apos;m 
-        </h2>
-        <div className="relative flex flex-col w-[105%] items-center">
-          <div className="absolute w-full h-[110%] px-4 bg-[#1e293b] rounded-lg border-[rgba(30, 41, 59, 0.5)] opacity-70 [box-shadow:0px_0px_10px_6px_#1e293b] z-10"/>
-          <h1 className="p-1 mt-3 text-[2.1em] text-yellow-300 leading-snug z-10">
-          Gabriel Izaguirre,</h1>
-          <h2 className="text-[1.4em] text-blue-500 leading-snug mb-[2%] z-10">a front-end developer</h2>
+      transition={{ duration: 0.81, delay: 1, ease: [0, 0.71, 0.2, 1.01] }}>
+          <h1 className=" text-yellow-300 z-10">
+          Gabriel Izaguirre,</h1> 
+          <h2 className="text-blue-500 z-10">a front-end developer</h2>
           <Button/>
-        </div>
+          <div className="absolute h-[120%] w-[115%] -top-[20%] md:-top-[15%] 2xl:-top-[20%] bg-transparent overflow-x-visible">
+            <h3 className="absolute h-max w-max top-[0%] left-[0%] text-center text-blue-100 bg-gradient-to-t from-[#347bb2] to-[#1E5183] [box-shadow:0px_0px_5px_1px_#347bb2] rounded-lg 2xl:rounded-2xl py-1 px-2 lg:px-3 2xl:px-4 2xl:py-2  mb-1 z-20">
+              Hello! I&apos;m
+            </h3>
+          </div>
       </motion.div>
     </section>
   )

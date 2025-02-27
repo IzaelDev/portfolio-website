@@ -1,8 +1,8 @@
 export const data = {
   navLinks:[
-  { href: "#about", label: "About me" },
-  { href: "#projects", label: "Project" },
-  { href: "#technology", label: "Technology" },
-  { href: "#contact", label: "Contact" },
+  { href: "about", label: "About me" },
+  { href: "projects", label: "Projects" },
+  { href: "technologies", label: "Technologies" },
+  { href: "contact", label: "Contact" },
   ],
 }

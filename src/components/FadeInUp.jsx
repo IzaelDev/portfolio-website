@@ -14,7 +14,7 @@ const FadeInUp = (props) => {
       });
     }, {
       root: null,
-      rootMargin: '0px 0px -15% 0px',
+      rootMargin: '0px 0px -5% 0px',
       threshold: 0
     });
     observer.observe(domRef.current);
