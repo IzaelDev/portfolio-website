@@ -1,12 +1,26 @@
 import { FadeInLeft, Wind } from "../components/index"
 import { motion } from "motion/react"
 import VanillaTilt from "vanilla-tilt"
-import { useEffect } from "react"
+import { useState, useEffect } from "react"
 import { Korok } from "../assets/images/index"
-import resume from "../assets/documents/resume.pdf"
+import resume from "../../resume.pdf"
 
 function About() {
-    useEffect(()=>{
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+  useEffect(() => {
+      const handleResize = () => {
+        setIsMobile(window.innerWidth < 768);
+      };
+
+      window.addEventListener("resize", handleResize);
+
+      return () => {
+        window.removeEventListener("resize", handleResize);
+      };
+  }, []);
+
+  useEffect(()=>{
     const element = document.querySelectorAll(".leaf");
     VanillaTilt.init(element, {
       max: 10,
@@ -15,9 +29,10 @@ function About() {
       "max-glare": 0.10,
     });
   }, []);
+
   return (
     <section id="about" className="min-h-[80svh] w-full overflow-x-clip pt-[10svh] mb-[10svh]">
-      <Wind />
+      {!isMobile && <Wind />}
       <div className="flex flex-col justify-center items-center mx-[5%] gap-[6svh]">
         <FadeInLeft className="w-max ">
           <h2 className="leaf unselectable shadow-lg shadow-black [border-radius:180px/12px_95px] max-md:[box-shadow:0_0_1px_1px_#195B26,inset_0_0_2px_0.5svw_#195B26,inset_0_0_10px_2.5svw_#3B8447] md:[box-shadow:0_0_1px_1px_#195B26,inset_0_0_2px_0.5svh_#195B26,inset_0_0_1.5svw_1.5svw_#3B8447] xl:[text-shadow:4px_2px_20px_#FC0] px-[3svh] py-[1.75svh] md:px-[3svw] md:py-[1.75svw] 2xl:px-[2svw] 2xl:py-[1.1svw]">

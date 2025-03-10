@@ -1,11 +1,26 @@
 import { motion } from "motion/react"
 import Button from "../components/Button"
 import { Wind } from "../components"
+import { useState, useEffect } from "react"
 
 const Hero = () => {
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+  useEffect(() => {
+      const handleResize = () => {
+        setIsMobile(window.innerWidth < 768);
+      };
+
+      window.addEventListener("resize", handleResize);
+
+      return () => {
+        window.removeEventListener("resize", handleResize);
+      };
+  }, []);
+
   return (
     <section id=" " className="flex h-[99svh] w-full justify-center items-center bg-island bg-[position:55%_40%] md:bg-top md:bg-[length:100%_100%] mb-[10svh] overflow-x-hidden">
-      <Wind />
+      {!isMobile && <Wind/>}
       <div className="absolute h-full w-full bg-gradient-to-b from-transparent via-to-slate-900 to-slate-900"/>
       <motion.div className="relative flex flex-col items-center justify-center bg-[#1e293b] p-4 md:p-6 lg:p-8 rounded-lg xl:rounded-xl bg-opacity-80 [box-shadow:0px_0px_10px_5px_#1e293b] z-10"
       initial={{ opacity: 0, scale: 0.5 }}

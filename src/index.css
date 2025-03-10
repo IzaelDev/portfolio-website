@@ -124,14 +124,8 @@ p {
 }
 .fade-up-section {
   opacity: 0;
-  transform: translateY(10svh);
-  visibility: visible;
-  transition: opacity 0.5s ease-out, transform 0.5s ease-in-out;
+  animation: fade-up 0.5s 0.35s forwards;
   will-change: opacity;
-}
-.fade-up-section.is-visible {
-  opacity: 1;
-  transform: none;
 }
 .bg-card {
   background:linear-gradient(71deg, #A3D1FE, #FEFEFE, #A3D1FE);
@@ -141,12 +135,10 @@ p {
   position: absolute;
   height: 60%;
   width: 100%;
-  top: 50%;
-  transform: skewY(2deg);
+  top: 40%;
   box-shadow: 0 -5px 10px -5px black;
   background:linear-gradient(71deg, #A3D1FE, #FEFEFE, #A3D1FE);
-  clip-path: polygon(0 0, 100% 0, 100% 80%, 0 90%);
-  border-radius: 0% 0% 1.5rem 1.5rem;
+  border-radius: 0% 100% 0% 0% / 0% 10% 0% 0%;
 }
 .card-envelope::before {
   position: absolute;
@@ -274,7 +266,7 @@ canvas {
     opacity: 1;
   }
   50% {
-    transform: translateY(-66%);
+    transform: translateY(-70%);
     z-index: 10;
     opacity: 1;
   }
@@ -292,7 +284,7 @@ canvas {
     z-index: 200;
   }
   50% {
-    transform: translateY(-66%);
+    transform: translateY(-70%);
     opacity: 1;
     z-index: 10;
   }
@@ -310,6 +302,17 @@ canvas {
   100%
   {
     transform: translate(-50%,-75%) rotate(360deg);
+  }
+}
+@keyframes fade-up
+{
+  0%{
+    opacity: 0;
+    transform: translateY(10svh);
+  }
+  100%{
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 @keyframes blow-leaf-rise

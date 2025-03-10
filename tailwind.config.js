@@ -1,9 +1,14 @@
+import fluid, { extract, screens, fontSize } from 'fluid-tailwind'
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: [
+  content: {
+    files:[
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
-  ],
+    ],
+    extract
+  },
+
   theme: {
     extend: {
       fontFamily: {
@@ -19,9 +24,11 @@ export default {
         'island': "url('/src/assets/images/toon_island.webp')",
       },
       screens: {
-        'xs': '374px'
+        'xs': '20rem'
       }
     },
+    screens,
+    fontSize,
   },
-  plugins: [],
+  plugins: [fluid],
 }

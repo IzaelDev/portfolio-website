@@ -1,10 +1,15 @@
-import { FadeInUp ,FadeInRight, Card } from "../components/index"
 import { LiveDocs, Nike, Arena } from "../assets/images/index"
 import { github } from "../assets/icons/index"
 import VanillaTilt from "vanilla-tilt"
-import { useEffect } from "react"
+import { useState, useEffect, useRef, lazy } from "react"
+
+const  Card  = lazy(() => import("../components/Card"))
+const  FadeInRight =lazy(() => import("../components/FadeInRight"))
 
 function Projects() {
+  const [loadProjects, setLoadProjects] = useState(false);
+  const projectsRef = useRef(null);
+
     useEffect(()=>{
     const element = document.querySelectorAll(".leaf");
     VanillaTilt.init(element, {
@@ -14,6 +19,22 @@ function Projects() {
       "max-glare": 0.10,
     });
   }, []);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(!loadProjects)
+          setLoadProjects(entry.isIntersecting)
+      });
+    }, {
+      root: null,
+      rootMargin: '0px 0px -5% 0px',
+      threshold: 0
+    });
+    observer.observe(projectsRef.current);
+    return () => observer.disconnect();
+  }, [loadProjects]);
+
   return (
     <section id="projects" className="relative min-h-[100svh] w-full overflow-x-clip pt-[10svh] mb-[10svh]">
       <div className="flex flex-col items-center justify-center gap-[6svh]">
@@ -22,43 +43,45 @@ function Projects() {
             Projects
           </h2>
         </FadeInRight>
-        <FadeInUp>
-          <div className="card-wrapper xl:gap-[2.5svw] transition-[all_.8s_ease]">
-              <Card 
-                image={LiveDocs}
-                alt="Live Docs Clone image"
-                title="Live Docs Clone"
-                description="A clone website for live sharing, commenting and editing documents taking after Live Docs."
-                tags={["Typescript", "Next.js"]}
-                git={github}
-                gitLink="https://github.com/IzaelDev/clone_live_docs"
-                goToLink="https://clone-live-docs.vercel.app"
-                index={1}
-              />
-              <Card 
-                image={Nike}
-                alt="Nike Shop image"
-                title="Nike Landing Site"
-                description="A landing site for Nike shoes E-Commerce website made for practice."
-                tags={["Typescript", "Next.js"]}
-                git={github}
-                gitLink="https://github.com/IzaelDev/nike-shop"
-                goToLink="https://nike-shop-83i9601it-igris-projects-c9cf46a8.vercel.app"
-                index={2}
-              />
-              <Card 
-                image={Arena}
-                alt="Videogame image"
-                title="Arena of The Chosen"
-                description="A local multiplayer card-grid-fighting game made on Unity, featuring two players combat, unique characters and abilities."
-                tags={["C#", "Unity"]}
-                git={github}
-                gitLink=""
-                goToLink=""
-                index={3}
-              />
-          </div>
-        </FadeInUp>
+        <div ref={projectsRef}>
+          {loadProjects &&
+            <div className="card-wrapper fade-up-section xl:gap-[2.5svw] transition-[all_.8s_ease]">
+                <Card 
+                  image={LiveDocs}
+                  alt="Live Docs Clone image"
+                  title="Live Docs Clone"
+                  description="A clone website for live sharing, commenting and editing documents taking after Live Docs."
+                  tags={["Typescript", "Next.js"]}
+                  git={github}
+                  gitLink="https://github.com/IzaelDev/clone_live_docs"
+                  goToLink="https://clone-live-docs.vercel.app"
+                  index={1}
+                />
+                <Card 
+                  image={Nike}
+                  alt="Nike Shop image"
+                  title="Nike Landing Site"
+                  description="A landing site for Nike shoes E-Commerce website made for practice."
+                  tags={["Typescript", "Next.js"]}
+                  git={github}
+                  gitLink="https://github.com/IzaelDev/nike-shop"
+                  goToLink="https://nike-shop-83i9601it-igris-projects-c9cf46a8.vercel.app"
+                  index={2}
+                />
+                <Card 
+                  image={Arena}
+                  alt="Videogame image"
+                  title="Arena of The Chosen"
+                  description="A local multiplayer card-grid-fighting game made on Unity, featuring two players combat, unique characters and abilities."
+                  tags={["C#", "Unity"]}
+                  git={github}
+                  gitLink=""
+                  goToLink=""
+                  index={3}
+                />
+            </div>
+          }
+        </div>
       </div>
     </section>
   )
