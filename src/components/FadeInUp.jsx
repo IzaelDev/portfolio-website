@@ -1,5 +1,5 @@
-import { useEffect, useState, useRef,  } from 'react';
-import PropTypes from 'prop-types';
+import { useEffect, useState, useRef } from "react";
+import PropTypes from "prop-types";
 
 const FadeInUp = (props) => {
   const [isVisible, setVisible] = useState(false);
@@ -7,16 +7,18 @@ const FadeInUp = (props) => {
   const domRef = useRef();
 
   useEffect(() => {
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if(!isVisible && isTime)
-          setVisible(entry.isIntersecting)
-      });
-    }, {
-      root: null,
-      rootMargin: '0px 0px -5% 0px',
-      threshold: 0
-    });
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!isVisible && isTime) setVisible(entry.isIntersecting);
+        });
+      },
+      {
+        root: null,
+        rootMargin: "0px 0px -5% 0px",
+        threshold: 0,
+      },
+    );
     observer.observe(domRef.current);
     return () => observer.disconnect();
   }, [isVisible, isTime]);
@@ -31,7 +33,7 @@ const FadeInUp = (props) => {
 
   return (
     <div
-      className={`fade-up-section ${isVisible ? 'is-visible' : ''}`}
+      className={`fade-up-section ${isVisible ? "is-visible" : ""}`}
       ref={domRef}
     >
       {props.children}
@@ -40,7 +42,7 @@ const FadeInUp = (props) => {
 };
 
 FadeInUp.propTypes = {
-  children: PropTypes.node
+  children: PropTypes.node,
 };
 
 export default FadeInUp;
