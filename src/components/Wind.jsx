@@ -11,7 +11,7 @@ const Wind = () => {
   }, [isTime]);
 
   return (
-    <div className="absolute max-sm:hidden h-[100svh] w-[100svw] overflow-hidden pointer-events-none z-[900]">
+    <div className="absolute max-sm:hidden h-full w-full overflow-hidden pointer-events-none z-[900]">
       {isTime ? (
         <>
           <div className="absolute opacity-0 h-[3.2svw] w-[3.2svw] [animation:blow-leaf-medium_4.7s_linear_forwards]">

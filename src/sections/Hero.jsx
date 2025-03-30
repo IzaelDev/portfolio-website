@@ -23,7 +23,7 @@ const Hero = () => {
   return (
     <section
       id=" "
-      className="flex h-[99svh] w-full justify-center items-center bg-island bg-[position:55%_40%] md:bg-top md:bg-[length:100%_100%] mb-[10svh] overflow-x-hidden"
+      className="flex h-screen w-full justify-center items-center bg-island bg-[position:55%_40%] md:bg-top md:bg-[length:100%_100%] mb-[10svh] overflow-x-hidden"
     >
       {!isMobile && 
         <Suspense>
