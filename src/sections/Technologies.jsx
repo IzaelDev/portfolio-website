@@ -257,7 +257,7 @@ function Technologies() {
                   </div>
                 </ul>
               </div>
-              <div className="unselectable flex flex-col relative col-span-1 row-span-1 h-[100svh] w-full">
+              <div className="unselectable flex flex-col relative col-span-1 row-span-1 h-[70svh] lg:h-[100svh] w-full max-lg:px-4">
                 <Suspense>
                   <Canvas shadows dpr={[1, 1.5]}>
                     <Scene modelRef={modelRef} />
