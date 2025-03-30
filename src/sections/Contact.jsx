@@ -52,7 +52,7 @@ function Contact() {
   return (
     <section
       id="contact"
-      className="relative flex h-[40svh] w-full justify-center overflow-x-clip mb-[5%]"
+      className="relative flex h-[40svh] w-full justify-center overflow-x-clip md:mt-[10%] mb-[5%]"
     >
       {!isMobile && 
         <Suspense>

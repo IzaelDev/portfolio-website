@@ -9,7 +9,6 @@ import Wind from "./Wind";
 
 export {
   Nav,
-  FadeInUp,
   FadeInLeft,
   FadeInRight,
   Card,

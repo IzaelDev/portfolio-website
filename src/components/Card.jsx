@@ -48,7 +48,7 @@ const Card = ({
                   />
                 </a>
               </div>
-              <h5 className="font-thin xl:font-normal w-full text-pretty leading-[110%] lg:leading-[120%] justify-self-center overflow-hidden whitespace-normal z-30">
+              <h5 className="font-extralight xl:font-normal w-full text-pretty leading-[110%] lg:leading-[120%] justify-self-center overflow-hidden whitespace-normal z-30">
                 {description}
               </h5>
             </div>

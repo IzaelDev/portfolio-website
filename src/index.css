@@ -111,7 +111,7 @@ p {
 }
 .fade-up-section {
   opacity: 0;
-  animation: fade-up 0.5s 0.35s forwards;
+  animation: fade-up 0.5s 0.4s forwards;
   will-change: opacity;
 }
 .bg-card {
